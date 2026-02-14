@@ -1,14 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3o54rxt4sg7b"]
+[gd_scene load_steps=15 format=3 uid="uid://clmhaqaj4dybt"]
 
 [ext_resource type="Script" path="res://guide_examples/combine_contexts/combine_contexts.gd" id="1_nxm54"]
 [ext_resource type="Resource" uid="uid://byntrqf4ro5ul" path="res://guide_examples/combine_contexts/mapping_contexts/keyboard_and_mouse.tres" id="2_7en4c"]
 [ext_resource type="Texture2D" uid="uid://byjxtsekdl8t2" path="res://guide_examples/shared/godot_logo.svg" id="2_ug15u"]
 [ext_resource type="Resource" uid="uid://bvg2kv4me6p18" path="res://guide_examples/combine_contexts/mapping_contexts/controller.tres" id="3_iacs2"]
-[ext_resource type="Script" path="res://guide_examples/2d_axis_mapping/player.gd" id="3_w8aur"]
+[ext_resource type="Script" path="res://guide_examples/combine_contexts/player.gd" id="4_3v01d"]
 [ext_resource type="Resource" uid="uid://bxmuoph07ha7w" path="res://guide_examples/combine_contexts/mapping_contexts/move.tres" id="4_7en4c"]
 [ext_resource type="PackedScene" uid="uid://dkr80d2pi0d41" path="res://addons/guide/debugger/guide_debugger.tscn" id="7_1g1vo"]
 [ext_resource type="Theme" uid="uid://dot0gi1yoqmrl" path="res://guide_examples/shared/ui_theme.tres" id="8_qjb18"]
 [ext_resource type="Script" path="res://guide_examples/shared/instructions_label.gd" id="9_kwp4h"]
+[ext_resource type="PackedScene" uid="uid://dfe4ex8qu3hiq" path="res://guide_examples/combine_contexts/escape_menu.tscn" id="10_jnojo"]
+[ext_resource type="Resource" uid="uid://ceacybmowi4vu" path="res://guide_examples/combine_contexts/mapping_contexts/menu/menu_controller.tres" id="11_8ujma"]
+[ext_resource type="Resource" uid="uid://crxqah45wiuav" path="res://guide_examples/combine_contexts/mapping_contexts/open_escape_menu.tres" id="11_io10t"]
+[ext_resource type="Resource" uid="uid://b7gx7c7yugnp1" path="res://guide_examples/combine_contexts/mapping_contexts/menu/menu_keyboard_and_mouse.tres" id="12_jwx0t"]
+[ext_resource type="Resource" uid="uid://bp3jupo1jin5a" path="res://guide_examples/combine_contexts/mapping_contexts/menu/close_escape_menu.tres" id="14_2jrw5"]
 
 [node name="CombineContexts" type="Node2D"]
 script = ExtResource("1_nxm54")
@@ -17,15 +22,15 @@ controller = ExtResource("3_iacs2")
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(929, 695)
-script = ExtResource("3_w8aur")
+script = ExtResource("4_3v01d")
 move_action = ExtResource("4_7en4c")
 
 [node name="GodotLogo" type="Sprite2D" parent="Player"]
 texture = ExtResource("2_ug15u")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="HUD Layer" type="CanvasLayer" parent="."]
 
-[node name="InstructionsLabel" type="RichTextLabel" parent="UI"]
+[node name="InstructionsLabel" type="RichTextLabel" parent="HUD Layer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 anchors_preset = 1
@@ -50,3 +55,11 @@ actions = Array[Resource("res://addons/guide/guide_action.gd")]([ExtResource("4_
 
 [node name="GuideDebugger" parent="Debugger" instance=ExtResource("7_1g1vo")]
 theme = ExtResource("8_qjb18")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="EscapeMenu" parent="UI" instance=ExtResource("10_jnojo")]
+visible = false
+menu_contexts = Array[Resource("res://addons/guide/guide_mapping_context.gd")]([ExtResource("11_8ujma"), ExtResource("12_jwx0t")])
+open_menu_action = ExtResource("11_io10t")
+close_menu_action = ExtResource("14_2jrw5")

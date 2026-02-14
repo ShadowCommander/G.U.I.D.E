@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=14 format=3 uid="uid://ceacybmowi4vu"]
+
+[ext_resource type="Script" path="res://addons/guide/guide_action_mapping.gd" id="1_8y6ue"]
+[ext_resource type="Script" path="res://addons/guide/guide_mapping_context.gd" id="1_ag70v"]
+[ext_resource type="Resource" uid="uid://bp3jupo1jin5a" path="res://guide_examples/combine_contexts/mapping_contexts/menu/close_escape_menu.tres" id="1_khnhj"]
+[ext_resource type="Script" path="res://addons/guide/inputs/guide_input_joy_button.gd" id="2_vq8y2"]
+[ext_resource type="Script" path="res://addons/guide/guide_input_mapping.gd" id="3_0s5ek"]
+[ext_resource type="Script" path="res://addons/guide/triggers/guide_trigger_pressed.gd" id="4_ma5is"]
+
+[sub_resource type="Resource" id="Resource_go4qg"]
+script = ExtResource("2_vq8y2")
+button = 1
+joy_index = -1
+
+[sub_resource type="Resource" id="Resource_osurp"]
+script = ExtResource("4_ma5is")
+actuation_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_1mgq0"]
+script = ExtResource("3_0s5ek")
+override_action_settings = false
+is_remappable = false
+display_name = ""
+display_category = ""
+input = SubResource("Resource_go4qg")
+modifiers = Array[Resource("res://addons/guide/modifiers/guide_modifier.gd")]([])
+triggers = Array[Resource("res://addons/guide/triggers/guide_trigger.gd")]([SubResource("Resource_osurp")])
+
+[sub_resource type="Resource" id="Resource_8we6i"]
+script = ExtResource("2_vq8y2")
+button = 6
+joy_index = -1
+
+[sub_resource type="Resource" id="Resource_0fp3o"]
+script = ExtResource("4_ma5is")
+actuation_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_s00sk"]
+script = ExtResource("3_0s5ek")
+override_action_settings = false
+is_remappable = false
+display_name = ""
+display_category = ""
+input = SubResource("Resource_8we6i")
+modifiers = Array[Resource("res://addons/guide/modifiers/guide_modifier.gd")]([])
+triggers = Array[Resource("res://addons/guide/triggers/guide_trigger.gd")]([SubResource("Resource_0fp3o")])
+
+[sub_resource type="Resource" id="Resource_vkh1e"]
+script = ExtResource("1_8y6ue")
+action = ExtResource("1_khnhj")
+input_mappings = Array[ExtResource("3_0s5ek")]([SubResource("Resource_1mgq0"), SubResource("Resource_s00sk")])
+
+[resource]
+script = ExtResource("1_ag70v")
+display_name = ""
+mappings = Array[ExtResource("1_8y6ue")]([SubResource("Resource_vkh1e")])

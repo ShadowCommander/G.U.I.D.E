@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfe4ex8qu3hiq"]
+
+[ext_resource type="Script" path="res://guide_examples/combine_contexts/escape_menu.gd" id="1_dgcn4"]
+
+[node name="EscapeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_dgcn4")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Escape Menu"
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="ButtonResume" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="ButtonQuit" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer/ButtonResume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
