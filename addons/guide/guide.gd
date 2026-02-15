@@ -99,7 +99,7 @@ func enable_mapping_context(context:GUIDEMappingContext, disable_others:bool = f
 		return
 	
 	if disable_others:
-		_active_contexts.clear()	
+		clear_mapping_contexts(false)
 	
 	_active_contexts[context] = [priority, Time.get_ticks_usec()]
 	_update_caches()
@@ -118,6 +118,13 @@ func disable_mapping_context(context:GUIDEMappingContext) -> void:
 	# notify listeners that the context was disabled
 	context.disabled.emit()
 
+func clear_mapping_contexts(update_caches:bool = true) -> void:
+	for context in _active_contexts:
+		context.disabled.emit()
+	_active_contexts.clear()
+
+	if update_caches:
+		_update_caches()
 
 ## Checks whether the given mapping context is currently enabled.
 func is_mapping_context_enabled(context:GUIDEMappingContext) -> bool:
