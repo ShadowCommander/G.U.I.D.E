@@ -22,14 +22,18 @@ func open_menu() -> void:
 	if visible:
 		return
 	show()
+	first_focus.grab_focus()
+
+	# Add menu navigation contexts
 	for context in menu_contexts:
 		GUIDE.enable_mapping_context(context)
-	first_focus.grab_focus()
 
 func resume_game() -> void:
 	if not visible:
 		return
 	hide()
+
+	# Remove menu navigation contexts
 	for context in menu_contexts:
 		GUIDE.disable_mapping_context(context)
 

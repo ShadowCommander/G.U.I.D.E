@@ -18,16 +18,20 @@ func open_menu() -> void:
 	if visible:
 		return
 	show()
+	button_resume.grab_focus()
+
+	# Replace mappings
 	_previous_mapping_contexts = GUIDE.get_enabled_mapping_contexts()
 	GUIDE.clear_mapping_contexts(false)
 	for context in menu_contexts:
 		GUIDE.enable_mapping_context(context)
-	button_resume.grab_focus()
 
 func resume_game() -> void:
 	if not visible:
 		return
 	hide()
+
+	# Re-enable replaced mappings
 	GUIDE.clear_mapping_contexts(false)
 	for context in _previous_mapping_contexts:
 		GUIDE.enable_mapping_context(context)
