@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfe4ex8qu3hiq"]
+[gd_scene load_steps=6 format=3 uid="uid://dfe4ex8qu3hiq"]
 
 [ext_resource type="Script" path="res://guide_examples/combine_contexts/escape_menu.gd" id="1_dgcn4"]
+[ext_resource type="Resource" uid="uid://ceacybmowi4vu" path="res://guide_examples/combine_contexts/mapping_contexts/menu/menu_controller.tres" id="2_50xs1"]
+[ext_resource type="Resource" uid="uid://b7gx7c7yugnp1" path="res://guide_examples/combine_contexts/mapping_contexts/menu/menu_keyboard_and_mouse.tres" id="3_k4b48"]
+[ext_resource type="Resource" uid="uid://crxqah45wiuav" path="res://guide_examples/combine_contexts/mapping_contexts/open_escape_menu.tres" id="4_4fhlx"]
+[ext_resource type="Resource" uid="uid://bp3jupo1jin5a" path="res://guide_examples/combine_contexts/mapping_contexts/menu/close_menu.tres" id="5_55wx4"]
 
 [node name="EscapeMenu" type="Control"]
 layout_mode = 3
@@ -11,6 +15,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_dgcn4")
+menu_contexts = Array[Resource("res://addons/guide/guide_mapping_context.gd")]([ExtResource("2_50xs1"), ExtResource("3_k4b48")])
+open_menu_action = ExtResource("4_4fhlx")
+close_menu_action = ExtResource("5_55wx4")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

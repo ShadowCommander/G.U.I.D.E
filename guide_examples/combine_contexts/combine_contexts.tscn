@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://clmhaqaj4dybt"]
+[gd_scene load_steps=12 format=3 uid="uid://clmhaqaj4dybt"]
 
 [ext_resource type="Script" path="res://guide_examples/combine_contexts/combine_contexts.gd" id="1_nxm54"]
 [ext_resource type="Resource" uid="uid://byntrqf4ro5ul" path="res://guide_examples/combine_contexts/mapping_contexts/keyboard_and_mouse.tres" id="2_7en4c"]
@@ -10,10 +10,7 @@
 [ext_resource type="Theme" uid="uid://dot0gi1yoqmrl" path="res://guide_examples/shared/ui_theme.tres" id="8_qjb18"]
 [ext_resource type="Script" path="res://guide_examples/shared/instructions_label.gd" id="9_kwp4h"]
 [ext_resource type="PackedScene" uid="uid://dfe4ex8qu3hiq" path="res://guide_examples/combine_contexts/escape_menu.tscn" id="10_jnojo"]
-[ext_resource type="Resource" uid="uid://ceacybmowi4vu" path="res://guide_examples/combine_contexts/mapping_contexts/menu/menu_controller.tres" id="11_8ujma"]
-[ext_resource type="Resource" uid="uid://crxqah45wiuav" path="res://guide_examples/combine_contexts/mapping_contexts/open_escape_menu.tres" id="11_io10t"]
-[ext_resource type="Resource" uid="uid://b7gx7c7yugnp1" path="res://guide_examples/combine_contexts/mapping_contexts/menu/menu_keyboard_and_mouse.tres" id="12_jwx0t"]
-[ext_resource type="Resource" uid="uid://bp3jupo1jin5a" path="res://guide_examples/combine_contexts/mapping_contexts/menu/close_escape_menu.tres" id="14_2jrw5"]
+[ext_resource type="PackedScene" uid="uid://dnh58w2f2voc3" path="res://guide_examples/combine_contexts/inventory_menu.tscn" id="10_v3urc"]
 
 [node name="CombineContexts" type="Node2D"]
 script = ExtResource("1_nxm54")
@@ -51,15 +48,15 @@ instructions_text = "%s to move.
 Both keyboard and controller inputs work simultaneously!"
 actions = Array[Resource("res://addons/guide/guide_action.gd")]([ExtResource("4_7en4c")])
 
-[node name="Debugger" type="CanvasLayer" parent="."]
-
-[node name="GuideDebugger" parent="Debugger" instance=ExtResource("7_1g1vo")]
-theme = ExtResource("8_qjb18")
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="EscapeMenu" parent="UI" instance=ExtResource("10_jnojo")]
 visible = false
-menu_contexts = Array[Resource("res://addons/guide/guide_mapping_context.gd")]([ExtResource("11_8ujma"), ExtResource("12_jwx0t")])
-open_menu_action = ExtResource("11_io10t")
-close_menu_action = ExtResource("14_2jrw5")
+
+[node name="InventoryMenu" parent="UI" instance=ExtResource("10_v3urc")]
+visible = false
+
+[node name="Debugger" type="CanvasLayer" parent="."]
+
+[node name="GuideDebugger" parent="Debugger" instance=ExtResource("7_1g1vo")]
+theme = ExtResource("8_qjb18")

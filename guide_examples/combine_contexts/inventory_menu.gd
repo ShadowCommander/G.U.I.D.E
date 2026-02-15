@@ -1,36 +1,37 @@
 extends Control
 
-@onready var button_resume: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer/ButtonResume
+@export var first_focus: Control
 
 @export var menu_contexts: Array[GUIDEMappingContext]
 @export var open_menu_action: GUIDEAction
 @export var close_menu_action: GUIDEAction
 
-var _previous_mapping_contexts: Array[GUIDEMappingContext] = []
-
 
 func _ready() -> void:
 	hide()
-	open_menu_action.triggered.connect(open_menu)
+	open_menu_action.triggered.connect(toggle_menu)
 	close_menu_action.triggered.connect(resume_game)
+
+func toggle_menu() -> void:
+	if visible:
+		resume_game()
+	else:
+		open_menu()
 
 func open_menu() -> void:
 	if visible:
 		return
 	show()
-	_previous_mapping_contexts = GUIDE.get_enabled_mapping_contexts()
-	GUIDE.clear_mapping_contexts(false)
 	for context in menu_contexts:
 		GUIDE.enable_mapping_context(context)
-	button_resume.grab_focus()
+	first_focus.grab_focus()
 
 func resume_game() -> void:
 	if not visible:
 		return
 	hide()
-	GUIDE.clear_mapping_contexts(false)
-	for context in _previous_mapping_contexts:
-		GUIDE.enable_mapping_context(context)
+	for context in menu_contexts:
+		GUIDE.disable_mapping_context(context)
 
 
 func _on_button_quit_pressed() -> void:

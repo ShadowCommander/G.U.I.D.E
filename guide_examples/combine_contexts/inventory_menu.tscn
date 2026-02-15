@@ -1,0 +1,161 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnh58w2f2voc3"]
+
+[ext_resource type="Script" path="res://guide_examples/combine_contexts/inventory_menu.gd" id="1_ix08q"]
+[ext_resource type="Resource" uid="uid://ceacybmowi4vu" path="res://guide_examples/combine_contexts/mapping_contexts/menu/menu_controller.tres" id="2_h4fpj"]
+[ext_resource type="Resource" uid="uid://b7gx7c7yugnp1" path="res://guide_examples/combine_contexts/mapping_contexts/menu/menu_keyboard_and_mouse.tres" id="3_n04ed"]
+[ext_resource type="Resource" uid="uid://ci03nmuknfgu6" path="res://guide_examples/combine_contexts/mapping_contexts/open_inventory_menu.tres" id="4_2x68b"]
+[ext_resource type="Resource" uid="uid://bp3jupo1jin5a" path="res://guide_examples/combine_contexts/mapping_contexts/menu/close_menu.tres" id="5_oydi3"]
+
+[node name="InventoryMenu" type="Control" node_paths=PackedStringArray("first_focus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ix08q")
+first_focus = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer/Button")
+menu_contexts = Array[Resource("res://addons/guide/guide_mapping_context.gd")]([ExtResource("2_h4fpj"), ExtResource("3_n04ed")])
+open_menu_action = ExtResource("4_2x68b")
+close_menu_action = ExtResource("5_oydi3")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Inventory Menu"
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+columns = 4
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button2" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button3" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button4" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button5" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button6" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button7" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button8" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button9" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button10" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button11" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button12" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button13" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button14" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button15" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
+
+[node name="Button16" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Item"
